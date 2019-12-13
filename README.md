@@ -1,4 +1,6 @@
-# カーペントリーのレッスンの国際化
+# Internationalisation of carpentry lessons カーペントリーのレッスンの国際化
+
+Please take a look at the [quickstart guide](quickstart.md) if you wish to make small contribution(s).
 
 小さな貢献をしたい場合は、[クイックスタートガイド](quickstart.md)を読んでみてください。
 
@@ -11,7 +13,7 @@ We encourage translators to [join our slack channel](https://r-wakalang.herokuap
 また、[Slackチャンネル](https://r-wakalang.herokuapp.com/), Tokyo R ワークスペースの #swcarpentry
  に参加することをおすすめします。ここは、翻訳を進める上で発生する疑問に関して質問するのに最適の場所です。
 
-## 目的
+## Purpose 目的
 
 The repository is intended to host the files and tools need to facilitate translations of the [Software Carpentry](https://software-carpentry.org/) lessons
 from English into other languages (currently we are working on Japanese). This repository is intended to merge with the Multi-lingual versions of the lessons
@@ -22,9 +24,13 @@ English lessons.
 We are translating (and keeping up-to-date) the Software Carpentry lessons, not revising original lesson material.
 If you notice an issue with the lesson materials themselves, please send an issue for pull request to the English lesson materials.
 
-## gitについて
+## About git （gitについて）
+
+This assumes that you are familiar with using Git and GitHub.
 
 ここでは、あなたが、GitとGitHubについて知っているという仮定をしています。
+
+If you need help installing git, please see the [guide on installing git](git.md).
 
 もし、gitをインストールするのに手助けが必要ならば、[gitのインストールガイド](git.md)を読んでみてください
 
@@ -59,12 +65,14 @@ git clone git@github.com:GitHubUser/i18n.git
 cd i18n
 ```
 
-3. サブモジュールを使えるようにする.
+3. Populate submodules. サブモジュールを使えるようにする.
 
 ```
 git submodule init
 git submodule update
 ```
+
+This repository should already contain a translation file for the lesson that you wish to contribute to in the `po` directory `<lesson-name>.<lang>.po` such as `git-novice.ja.po`
 
 このレポジトリはすでに、レッスンの翻訳ファイルが含まれています。翻訳に貢献したいときには、 `po` ディレクトリの中の `<レッスン名>.<言語>.po` 、例えば `git-novice.ja.po` に貢献することができます。
 
@@ -73,15 +81,17 @@ cd po
 ls git-novice.ja.po
 ```
 
-4. POファイルを編集します。[ガイドラインに従って](rules.md), 頻繁に変更をコミットし、十分だとおもったらpull request を投稿してください。
+4. Edit the PO files. [As per the guidelines](rules.md), please commit your changes frequently and submit a pull request when you are satisfied with your work. POファイルを編集します。[ガイドラインに従って](rules.md), 頻繁に変更をコミットし、十分だとおもったらpull request を投稿してください。
 
-5. 正確を期すために、あなたのPRについて、レビューが行われます。レビューがパスするまで、編集を続けます。そのようなときは、まずはじめに、組織のレポジトリに対する変更を pull してください。
+5. Your PR will be reviewed for accuracy. You may need to make edits so it can pass review. When doing so, always be sure to pull changes from the organisation repository first. 正確を期すために、あなたのPRについて、レビューが行われます。レビューがパスするまで、編集を続けます。そのようなときは、まずはじめに、組織のレポジトリに対する変更を pull してください。
 
 ```
 git checkout ja
 git remote add swc-ja git@github.com:swcarpentry-ja/i18n.git
 git pull swc-ja ja
 ```
+
+Repeat steps 4 and 5 until the PR passes review.
 
 PRがレビューをパスするまでステップ4と5を繰り返します
 
@@ -91,14 +101,22 @@ Editing the PO file will not generate the translated website. That is left to th
 
 If you want to see a translated MD file after editing the PO file, run `bash po4gitbook/compile.sh`. This generates a translated version of the lesson with your changes, which you can find at `locale/<lang>/<lesson>`, e.g., `locale/ja/git-novice`.
 
-## メインの英語のレッスンが新しくリリースされたら、レッスンを更新するのに貢献する
+## Contributing to translation of an updated lesson with a new release of the main English lessons メインの英語のレッスンが新しくリリースされたら、レッスンを更新するのに貢献する
+
+If there is an existing (complete) translation of the lesson but
+  there has a new release of the main English lessons, the updated version
+  of the English lessons needs to be merged with the current translated one.
 
 レッスンの(完全な)翻訳が存在しても、メインの英語のレッスンが新しくリリースされることがあります。
 更新されたバージョンの英語のレッスンは、現在の翻訳されたものにマージされる必要があります。
 
+Please see the [guide on updating lessons](updating.md).
+
 [レッスン更新時のガイド](updating.md)を見てください。
 
-## 翻訳のためのリソース
+## Resources for translations 翻訳のためのリソース
+
+Please follow [guidelines for translators](TranslatorGuidelines.md) when editing the lessons.
 
 レッスンを編集するときには[翻訳者のためのガイドライン](TranslatorGuidelines.md)に従ってください。
 
@@ -106,10 +124,16 @@ There is a [list of technical terms](https://github.com/swcarpentry-ja/i18n/wiki
 
 Please see the [culture notes](CultureNotes.md) for a standardized treatment of concepts that don't translate literally into Japanese to ensure consistency.
 
+We have a [change log](ChangeLog.md) to track progress and goals.
+
 進捗と、ゴールを記録するために[変更履歴](ChangeLog.md)を持っています。
 
-## メンテナーと管理者のガイド
+## Guide for maintainers and administrators メンテナーと管理者のガイド
+
+Please see the [guide for maintainers and administrators](admin.md)
 
 [メンテナーと管理者のガイド](admin.md) を見てください
+
+Thank you for all your help. Even seemingly minor contributions will be appreciated!
 
 ご協力いただきありがとうございます。たとえ小さな貢献であっても、大歓迎です。
